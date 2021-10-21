@@ -1,13 +1,19 @@
 import { createTheme } from '@mui/material/styles';
-import { green, purple } from '@mui/material/colors';
+
+const arcBlue = "#0B72B9";
+const arcOrange = "#FFBA60";
 
 export default createTheme({
   palette: {
+    common:{
+      blue:`${arcBlue}`,
+      orange:`${arcOrange}`
+    },
     primary: {
-      main: purple[500],
+      main: `${arcBlue}`,
     },
     secondary: {
-      main: green[500],
+      main: `${arcOrange}`,
     },
   },
 });
