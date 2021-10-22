@@ -7,6 +7,8 @@ import PropTypes from "prop-types";
 import { makeStyles } from "@mui/styles";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
+import Button from "@mui/material/Button";
+import { styled } from '@mui/material/styles';
 
 import logo from "../../assets/logo.svg";
 
@@ -20,14 +22,24 @@ const useStyles = makeStyles((theme) => ({
   },
   tabContainer: {
     marginLeft: "auto",
-    marginRight:'2em'
   },
   tab: {
     ...theme.typography.tab,
     color: "white !important",
-    minWidth:'10 !important',
-    marginLeft:'25px !important',
+    minWidth: "10 !important",
+    marginLeft: "25px !important",
   },
+  button: {
+    borderRadius: "50px",
+    marginLeft: "50px",
+    marginRight: "25px",
+  },
+}));
+
+const ColorButton = styled(Button)(({ theme }) => ({
+  borderRadius: "50px",
+  marginLeft: "50px",
+  marginRight: "25px",
 }));
 
 function ElevationScroll(props) {
@@ -67,6 +79,13 @@ export default function Header(props) {
                 <Tab label="About Us" className={classes.tab} />
                 <Tab label="Contact Us" className={classes.tab} />
               </Tabs>
+              <ColorButton
+                variant="contained"
+                color="secondary"
+                className={classes.button}
+              >
+                Free Estimate
+              </ColorButton>
             </Toolbar>
           </AppBar>
         </ElevationScroll>
