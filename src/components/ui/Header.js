@@ -8,7 +8,7 @@ import { makeStyles } from "@mui/styles";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Button from "@mui/material/Button";
-import { styled } from '@mui/material/styles';
+import { styled } from "@mui/material/styles";
 
 import logo from "../../assets/logo.svg";
 
@@ -23,23 +23,18 @@ const useStyles = makeStyles((theme) => ({
   tabContainer: {
     marginLeft: "auto",
   },
-  tab: {
-    ...theme.typography.tab,
-    color: "white !important",
-    minWidth: "10 !important",
-    marginLeft: "25px !important",
-  },
-  button: {
-    borderRadius: "50px",
-    marginLeft: "50px",
-    marginRight: "25px",
-  },
 }));
 
 const ColorButton = styled(Button)(({ theme }) => ({
   borderRadius: "50px",
   marginLeft: "50px",
   marginRight: "25px",
+}));
+const StyledTab = styled(Tab)(({ theme }) => ({
+  ...theme.typography.tab,
+  color: "white ",
+  minWidth: "10 ",
+  marginLeft: "25px",
 }));
 
 function ElevationScroll(props) {
@@ -68,16 +63,17 @@ export default function Header(props) {
           <AppBar position="fixed">
             <Toolbar disableGutters>
               <img alt="company logo" src={logo} className={classes.logo} />
+     
               <Tabs
                 value={value}
                 aria-label="basic tabs example"
                 className={classes.tabContainer}
               >
-                <Tab label="Home" className={classes.tab} />
-                <Tab label="Services" className={classes.tab} />
-                <Tab label="The Revolution" className={classes.tab} />
-                <Tab label="About Us" className={classes.tab} />
-                <Tab label="Contact Us" className={classes.tab} />
+                <StyledTab label="Home" className={classes.tab} />
+                <StyledTab label="Services" className={classes.tab} />
+                <StyledTab label="The Revolution" className={classes.tab} />
+                <StyledTab label="About Us" className={classes.tab} />
+                <StyledTab label="Contact Us" className={classes.tab} />
               </Tabs>
               <ColorButton
                 variant="contained"

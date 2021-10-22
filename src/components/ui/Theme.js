@@ -18,10 +18,10 @@ export default createTheme({
   },
   typography:{
     tab:{
-      fontFamily: "Raleway !important",
-      textTransform: "none !important",
-      fontWeight:'700 !important',
-      fontSize:'1em !important',
+      fontFamily: "Raleway",
+      textTransform: "none ",
+      fontWeight:'700 ',
+      fontSize:'1em ',
     }
   }
 
