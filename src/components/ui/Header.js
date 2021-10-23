@@ -34,9 +34,12 @@ const ColorButton = styled(Button)(({ theme }) => ({
 }));
 const StyledTab = styled(Tab)(({ theme }) => ({
   ...theme.typography.tab,
-  color: "white ",
   minWidth: "10 ",
   marginLeft: "25px",
+  color: 'rgba(255, 255, 255, 0.7)',
+  '&.Mui-selected': {
+    color: '#fff',
+  },
 }));
 
 function ElevationScroll(props) {
