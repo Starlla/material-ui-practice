@@ -9,6 +9,7 @@ import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Button from "@mui/material/Button";
 import { styled } from "@mui/material/styles";
+import {Link} from 'react-router-dom';
 
 import logo from "../../assets/logo.svg";
 
@@ -61,6 +62,9 @@ ElevationScroll.propTypes = {
 export default function Header(props) {
   const classes = useStyles();
   const [value, setValue] = React.useState(1);
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
   return (
     <React.Fragment>
       <Box sx={{ flexGrow: 1 }}>
@@ -68,17 +72,17 @@ export default function Header(props) {
           <AppBar position="fixed">
             <Toolbar disableGutters>
               <img alt="company logo" src={logo} className={classes.logo} />
-     
               <Tabs
                 value={value}
                 aria-label="basic tabs example"
                 className={classes.tabContainer}
+                onChange={handleChange}
               >
-                <StyledTab label="Home" className={classes.tab} />
-                <StyledTab label="Services" className={classes.tab} />
-                <StyledTab label="The Revolution" className={classes.tab} />
-                <StyledTab label="About Us" className={classes.tab} />
-                <StyledTab label="Contact Us" className={classes.tab} />
+                <StyledTab label="Home" className={classes.tab} component={Link} to='/'/>
+                <StyledTab label="Services" className={classes.tab} component={Link} to='/services'/>
+                <StyledTab label="The Revolution" className={classes.tab} component={Link} to='/revolution'/>
+                <StyledTab label="About Us" className={classes.tab} component={Link} to='/about' />
+                <StyledTab label="Contact Us" className={classes.tab} component={Link} to='/contact'/>
               </Tabs>
               <ColorButton
                 variant="contained"
