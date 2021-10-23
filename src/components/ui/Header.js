@@ -29,6 +29,8 @@ const ColorButton = styled(Button)(({ theme }) => ({
   borderRadius: "50px",
   marginLeft: "50px",
   marginRight: "25px",
+  height:'45px',
+  ...theme.typography.estimate
 }));
 const StyledTab = styled(Tab)(({ theme }) => ({
   ...theme.typography.tab,
