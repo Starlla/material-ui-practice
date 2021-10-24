@@ -75,12 +75,12 @@ export default function Header(props) {
       setValue(2);
     } else if (window.location.pathname === "/about" && value !== 3) {
       setValue(3);
-    }else if (window.location.pathname === "/contact" && value !== 4) {
+    } else if (window.location.pathname === "/contact" && value !== 4) {
       setValue(4);
-    }else if (window.location.pathname === "/estimate" && value !== 5) {
+    } else if (window.location.pathname === "/estimate" && value !== 5) {
       setValue(5);
     }
-  },[value]);
+  }, [value]);
 
   return (
     <React.Fragment>
@@ -88,7 +88,14 @@ export default function Header(props) {
         <ElevationScroll {...props}>
           <AppBar position="fixed">
             <Toolbar disableGutters>
-              <img alt="company logo" src={logo} className={classes.logo} />
+              <Button
+                component={Link}
+                to="/"
+                sx={{ padding: "0" }}
+                onClick={() => setValue(0)}
+              >
+                <img alt="company logo" src={logo} className={classes.logo} />
+              </Button>
               <Tabs
                 value={value}
                 aria-label="basic tabs example"
