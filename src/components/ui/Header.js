@@ -10,6 +10,8 @@ import Tab from "@mui/material/Tab";
 import Button from "@mui/material/Button";
 import { styled } from "@mui/material/styles";
 import { Link } from "react-router-dom";
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
 
 import logo from "../../assets/logo.svg";
 
@@ -62,8 +64,18 @@ ElevationScroll.propTypes = {
 export default function Header(props) {
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const open = Boolean(anchorEl);
   const handleChange = (event, newValue) => {
     setValue(newValue);
+  };
+
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
   };
 
   useEffect(() => {
@@ -109,6 +121,10 @@ export default function Header(props) {
                   to="/"
                 />
                 <StyledTab
+                  aria-owns={anchorEl ? "simple-menu" : undefined}
+                  aria-haspopup="true"
+                  aria-expanded={open ? "true" : undefined}
+                  onClick={handleClick}
                   label="Services"
                   className={classes.tab}
                   component={Link}
@@ -140,6 +156,19 @@ export default function Header(props) {
               >
                 Free Estimate
               </ColorButton>
+              <Menu
+                id="simple-menu"
+                anchorEl={anchorEl}
+                open={open}
+                onClose={handleClose}
+                MenuListProps={{
+                  "aria-labelledby": "basic-button",
+                }}
+              >
+                <MenuItem onClick={handleClose}>Profile</MenuItem>
+                <MenuItem onClick={handleClose}>My account</MenuItem>
+                <MenuItem onClick={handleClose}>Logout</MenuItem>
+              </Menu>
             </Toolbar>
           </AppBar>
         </ElevationScroll>
