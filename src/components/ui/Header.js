@@ -165,9 +165,13 @@ export default function Header(props) {
                   "aria-labelledby": "basic-button",
                 }}
               >
-                <MenuItem onClick={handleClose}>Profile</MenuItem>
-                <MenuItem onClick={handleClose}>My account</MenuItem>
-                <MenuItem onClick={handleClose}>Logout</MenuItem>
+                <MenuItem onClick={handleClose}>
+                  Custom Software Development
+                </MenuItem>
+                <MenuItem onClick={handleClose}>
+                  Mobile App Development
+                </MenuItem>
+                <MenuItem onClick={handleClose}>Website Development</MenuItem>
               </Menu>
             </Toolbar>
           </AppBar>
