@@ -124,7 +124,7 @@ export default function Header(props) {
                   aria-owns={anchorEl ? "simple-menu" : undefined}
                   aria-haspopup="true"
                   aria-expanded={open ? "true" : undefined}
-                  onClick={handleClick}
+                  onMouseOver={handleClick}
                   label="Services"
                   className={classes.tab}
                   component={Link}
@@ -163,6 +163,7 @@ export default function Header(props) {
                 onClose={handleClose}
                 MenuListProps={{
                   "aria-labelledby": "basic-button",
+                  onMouseLeave: handleClose,
                 }}
               >
                 <MenuItem onClick={handleClose}>
