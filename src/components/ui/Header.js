@@ -48,6 +48,8 @@ const StyledTab = styled(Tab)(({ theme }) => ({
 
 const StyledMenuItem = styled(MenuItem)(({ theme }) => ({
   ...theme.typography.tab,
+  opacity: 0.7,
+  "&:hover": { opacity: 1 },
 }));
 
 function ElevationScroll(props) {
