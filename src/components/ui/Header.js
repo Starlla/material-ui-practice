@@ -12,6 +12,7 @@ import { styled } from "@mui/material/styles";
 import { Link } from "react-router-dom";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
+import { useTheme } from "@mui/material/styles";
 
 import logo from "../../assets/logo.svg";
 
@@ -45,6 +46,10 @@ const StyledTab = styled(Tab)(({ theme }) => ({
   },
 }));
 
+const StyledMenuItem = styled(MenuItem)(({ theme }) => ({
+  ...theme.typography.tab,
+}));
+
 function ElevationScroll(props) {
   const { children } = props;
   const trigger = useScrollTrigger({
@@ -66,6 +71,7 @@ export default function Header(props) {
   const [value, setValue] = React.useState(0);
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
+  const theme = useTheme();
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
@@ -165,8 +171,15 @@ export default function Header(props) {
                   "aria-labelledby": "basic-button",
                   onMouseLeave: handleClose,
                 }}
+                elevation={0}
+                sx={{
+                  "& .MuiPaper-root": {
+                    backgroundColor: theme.palette.common.blue,
+                    color: "white",
+                  },
+                }}
               >
-                <MenuItem
+                <StyledMenuItem
                   onClick={() => {
                     handleClose();
                     setValue(1);
@@ -175,8 +188,8 @@ export default function Header(props) {
                   to="/services"
                 >
                   Services
-                </MenuItem>
-                <MenuItem
+                </StyledMenuItem>
+                <StyledMenuItem
                   onClick={() => {
                     handleClose();
                     setValue(1);
@@ -185,8 +198,8 @@ export default function Header(props) {
                   to="/custom-software-development"
                 >
                   Custom Software Development
-                </MenuItem>
-                <MenuItem
+                </StyledMenuItem>
+                <StyledMenuItem
                   onClick={() => {
                     handleClose();
                     setValue(1);
@@ -195,8 +208,8 @@ export default function Header(props) {
                   to="/mobile-app-development"
                 >
                   Mobile App Development
-                </MenuItem>
-                <MenuItem
+                </StyledMenuItem>
+                <StyledMenuItem
                   onClick={() => {
                     handleClose();
                     setValue(1);
@@ -205,7 +218,7 @@ export default function Header(props) {
                   to="/website-development"
                 >
                   Website Development
-                </MenuItem>
+                </StyledMenuItem>
               </Menu>
             </Toolbar>
           </AppBar>
